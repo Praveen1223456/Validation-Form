@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Form Validation Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-header">
+            <h1>HTML5 Form Validation Demo</h1>
+            <p>Try submitting without filling fields to see validation in action!</p>
+        </div>
+        <form action="#" method="POST" class="contact-form">
+            <fieldset>
+                <legend>Personal Information</legend>
+                
+                <div class="form-group">
+                    <label for="fullName">
+                        Full Name <span class="required">*</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        id="fullName" 
+                        name="fullName"
+                        placeholder="John Doe"
+                        required
+                        minlength="3"
+                        maxlength="50"
+                        pattern="[A-Za-z\s]+"
+                        title="Please enter only letters and spaces (3-50 characters)">
+                    <span class="form-hint">Only letters and spaces (3-50 characters)</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">
+                        Email Address <span class="required">*</span>
+                    </label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email"
+                        placeholder="john.doe@example.com"
+                        required
+                        maxlength="100"
+                        title="Please enter a valid email address">
+                    <span class="form-hint">We'll never share your email</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">
+                        Phone Number <span class="required">*</span>
+                    </label>
+                    <input 
+                        type="tel" 
+                        id="phone" 
+                        name="phone"
+                        placeholder="9876543210"
+                        required
+                        pattern="[0-9]{10}"
+                        maxlength="10"
+                        title="Please enter a 10-digit phone number">
+                    <span class="form-hint">Enter 10-digit number without spaces</span>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Message Details</legend>
+                
+                <div class="form-group">
+                    <label for="subject">
+                        Subject <span class="required">*</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        id="subject" 
+                        name="subject"
+                        placeholder="What is this regarding?"
+                        required
+                        minlength="5"
+                        maxlength="100"
+                        title="Subject must be between 5 and 100 characters">
+                    <span class="form-hint">Brief subject line (5-100 characters)</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">
+                        Category <span class="required">*</span>
+                    </label>
+                    <select 
+                        id="category" 
+                        name="category"
+                        required
+                        title="Please select a category">
+                        <option value="">-- Select Category --</option>
+                        <option value="general">General Inquiry</option>
+                        <option value="support">Technical Support</option>
+                        <option value="feedback">Feedback</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <span class="form-hint">Choose the most relevant option</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">
+                        Message <span class="required">*</span>
+                    </label>
+                    <textarea 
+                        id="message" 
+                        name="message"
+                        placeholder="Write your message here..."
+                        required
+                        minlength="20"
+                        maxlength="500"
+                        title="Message must be between 20 and 500 characters"></textarea>
+                    <span class="form-hint">Please provide details (20-500 characters)</span>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Additional Information</legend>
+                
+                <div class="form-group">
+                    <label for="website">Website URL</label>
+                    <input 
+                        type="url" 
+                        id="website" 
+                        name="website"
+                        placeholder="https://www.example.com"
+                        pattern="https?://.+"
+                        title="URL must start with http:// or https://">
+                    <span class="form-hint">Optional - must start with http:// or https://</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input 
+                        type="number" 
+                        id="age" 
+                        name="age"
+                        placeholder="25"
+                        min="18"
+                        max="100"
+                        title="Age must be between 18 and 100">
+                    <span class="form-hint">Optional - must be 18 or older</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Preferred Contact Date</label>
+                    <input 
+                        type="date" 
+                        id="date" 
+                        name="date"
+                        min="2026-01-22"
+                        title="Please select a future date">
+                    <span class="form-hint">Optional - select a future date</span>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Preferences</legend>
+                
+                <div class="form-group">
+                    <label>
+                        Preferred Contact Method <span class="required">*</span>
+                    </label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input 
+                                type="radio" 
+                                name="contactMethod" 
+                                value="email"
+                                required>
+                            <span>Email</span>
+                        </label>
+                        <label class="radio-label">
+                            <input 
+                                type="radio" 
+                                name="contactMethod" 
+                                value="phone">
+                            <span>Phone</span>
+                        </label>
+                        <label class="radio-label">
+                            <input 
+                                type="radio" 
+                                name="contactMethod" 
+                                value="either">
+                            <span>Either</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Interested In (Optional)</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interests" value="webdev">
+                            <span>Web Development</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interests" value="ai">
+                            <span>AI/ML Projects</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interests" value="consulting">
+                            <span>Consulting</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input 
+                            type="checkbox" 
+                            name="terms" 
+                            value="agreed"
+                            required
+                            title="You must agree to continue">
+                        <span>I agree to the terms and conditions <span class="required">*</span></span>
+                    </label>
+                </div>
+            </fieldset>
+
+            <div class="button-group">
+                <button type="submit" class="btn-submit">Submit Form</button>
+                <button type="reset" class="btn-reset">Clear Form</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
